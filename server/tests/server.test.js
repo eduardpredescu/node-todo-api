@@ -2,12 +2,8 @@ const expect = require('expect');
 const request = require('supertest');
 const {ObjectID} = require('mongodb');
 
-const {
-  app
-} = require('./../server');
-const {
-  Todo
-} = require('./../models/todo');
+const {app} = require('./../server');
+const {Todo} = require('./../models/todo');
 
 const todos = [{
   _id: new ObjectID(),
@@ -175,7 +171,6 @@ describe('PATCH /todos/:id', () => {
       })
       .end(done);
   });
-
 
   it('should return 404 if todo not found', (done) => {
     request(app)
